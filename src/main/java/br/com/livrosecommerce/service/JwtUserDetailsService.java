@@ -3,6 +3,7 @@ package br.com.livrosecommerce.service;
 import br.com.livrosecommerce.model.Role;
 import br.com.livrosecommerce.model.entity.UserLogin;
 import br.com.livrosecommerce.repository.UserLoginRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.User;
