@@ -1,0 +1,25 @@
+package br.com.livrosecommerce.service;
+
+import br.com.livrosecommerce.mapper.UserLoginMapper;
+import br.com.livrosecommerce.model.dto.UserLoginDTO;
+import br.com.livrosecommerce.model.entity.UserLogin;
+import br.com.livrosecommerce.repository.UserLoginRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import static java.time.LocalDateTime.now;
+
+@Service
+@RequiredArgsConstructor
+public class UserService {
+
+    private final UserLoginRepository userLoginRepository;
+
+    private final UserLoginMapper userLoginMapper;
+
+    public UserLoginDTO saveUserLogin(UserLoginDTO dto) {
+        dto.setRegistrationDate(now());
+        UserLogin savedUser = userLoginRepository.save(userLoginMapper.dtoToEntity(dto));
+        return userLoginMapper.entityToDTO(savedUser);
+    }
+}
